@@ -1,0 +1,28 @@
+{
+  "name": "cpp-notes",
+  "version": "0.0.1",
+  "description": "on the way to be a good cpp programmer",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gitbook-plugin-disqus": "^0.1.0",
+    "gitbook-plugin-mathjax": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roachsinai/Cpp-learning-notes.git"
+  },
+  "keywords": [
+    "cpp",
+    "notes"
+  ],
+  "author": "roachsinai <710347541@qq.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roachsinai/Cpp-learning-notes/issues"
+  },
+  "homepage": "https://github.com/roachsinai/Cpp-learning-notes#readme"
+}
