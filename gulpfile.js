@@ -4,7 +4,7 @@ var gulp = require("gulp"),
 gulp.task('deploy', function () {
   gulp.src("_book/**/*.*")
     .pipe(deploy({
-      remoteUrl: "https://github.com/regularjs/guide"
+      remoteUrl: "https://github.com/roachsinai/Cpp-learning-notes"
     }))
     .on("error", function(err){
       console.log(err)
