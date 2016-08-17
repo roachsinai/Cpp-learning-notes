@@ -8,7 +8,8 @@
     "gitbook-plugin-mathjax": "^1.1.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
