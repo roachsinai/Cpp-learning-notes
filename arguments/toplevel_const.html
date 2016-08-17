@@ -1,0 +1,484 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>顶层const · C++拾遗</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../class/" />
+    
+    
+    <link rel="prev" href="arguments_parameters.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://roachsinai.github.io/" target="_blank" class="custom-link">Roach's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../types/array.html">
+            
+                <a href="../types/array.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../types/array_lvalue.html">
+            
+                <a href="../types/array_lvalue.html">
+            
+                    
+                    数组为什么不能进行赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../types/const_static.html">
+            
+                <a href="../types/const_static.html">
+            
+                    
+                    const and static
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    参数传递
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="arguments_parameters.html">
+            
+                <a href="arguments_parameters.html">
+            
+                    
+                    const形参和实参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="toplevel_const.html">
+            
+                <a href="toplevel_const.html">
+            
+                    
+                    顶层const
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../class/">
+            
+                <a href="../class/">
+            
+                    
+                    类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../class/member_function.html">
+            
+                <a href="../class/member_function.html">
+            
+                    
+                    成员函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../class/access_control.html">
+            
+                <a href="../class/access_control.html">
+            
+                    
+                    访问、继承说明符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../class/vptr.html">
+            
+                <a href="../class/vptr.html">
+            
+                    
+                    虚函数表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                    Programming tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../tips/cstring_parameter.html">
+            
+                <a href="../tips/cstring_parameter.html">
+            
+                    
+                    传递字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../tips/floats_compare.html">
+            
+                <a href="../tips/floats_compare.html">
+            
+                    
+                    浮点数比较
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../end/">
+            
+                <a href="../end/">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >顶层const</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x9876;&#x5C42;const">&#x9876;&#x5C42;const</h1><p>const&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x597D;&#x7406;&#x89E3;&#x7684;&#x5C31;&#x662F;<strong>&#x5E26;&#x6709;&#x9876;&#x5C42;const</strong>&#x7684;&#x5F62;&#x53C2;&#x7684;const&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF01;&#x4E5F;&#x5C31;&#x662F;&#xFF1A;</p><pre><code>A: foo(int a){}
+
+B: foo(const int a){}</code></pre>
+<p>&#x4E0D;&#x80FD;&#x662F;&#x91CD;&#x8F7D;&#xFF0C; <code>c++ Primer</code> &#x4E2D;&#x6587;&#x7248;&#x7ED9;&#x7684;&#x8BF4;&#x660E;&#x662F;&#x5F62;&#x53C2;&#x5217;&#x8868;&#x5E94;&#x8BE5;&#x6709;&#x660E;&#x663E;&#x4E0D;&#x540C;&#xFF08;&#x4E0D;&#x5410;&#x4E0D;&#x5FEB;&#xFF1A;&#x8FD9;&#x8FD8;&#x4E0D;&#x660E;&#x663E;&#xFF09;&#x3002;&#x5E94;&#x8BE5;&#x8BF4;&#x662F;&#x8FC1;&#x5C31; <code>C</code>,&#x5728; C &#x8BED;&#x8A00;&#x91CC;&#xFF0C;&#x7248;&#x672C; A &#x548C;&#x7248;&#x672C; B &#x662F;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x5B9A;&#x4E49;&#x5728;&#x76F8;&#x540C;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF0C;C &#x7F16;&#x8BD1;&#x5668;&#x5C31;&#x4F1A;&#x8BA4;&#x4E3A;&#x662F;&#x51FD;&#x6570;&#x91CD;&#x5B9A;&#x4E49;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x91CD;&#x8F7D;&#xFF0C;&#x56E0;&#x4E3A; C &#x4E2D;&#x6839;&#x672C;&#x5C31;&#x6CA1;&#x6709;&#x91CD;&#x8F7D;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x7531;&#x4E8E; C &#x4E2D;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x53EA;&#x6709;&#x4F20;&#x503C;&#x4E00;&#x79CD;&#x4F20;&#x9012;&#x65B9;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64; const &#x53EA;&#x662F;&#x544A;&#x8BC9;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5F62;&#x53C2;&#x5728;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x503C;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x88AB;&#x6539;&#x53D8;&#x7684;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x5DF2;&#x7ECF;&#x8DDF;&#x5B9E;&#x53C2;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#x4E86;&#xFF0C;&#x4F20;&#x9012;&#x8FDB;&#x6765;&#x7684;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#x3002;&#x4E0E;&#x4E4B;&#x4E0D;&#x540C;&#x7684;&#x662F; C++ &#x6709;&#x5F15;&#x7528;&#xFF0C;&#x4F20;&#x5F15;&#x7528;&#x4F1A;&#x5BF9;&#x5B9E;&#x53C2;&#x9020;&#x6210;&#x5F71;&#x54CD;&#xFF0C;&#x5373;<strong>&#x5F15;&#x7528;&#x7684;&#x9876;&#x5C42;const&#x4EA7;&#x751F;&#x91CD;&#x8F7D;</strong>&#x3002;</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="arguments_parameters.html" class="navigation navigation-prev " aria-label="Previous page: const形参和实参">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../class/" class="navigation navigation-next " aria-label="Next page: 类">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"顶层const","level":"1.3.2","depth":2,"next":{"title":"类","level":"1.4","depth":1,"path":"class/README.md","ref":"class/README.md","articles":[{"title":"成员函数","level":"1.4.1","depth":2,"path":"class/member_function.md","ref":"class/member_function.md","articles":[]},{"title":"访问、继承说明符","level":"1.4.2","depth":2,"path":"class/access_control.md","ref":"class/access_control.md","articles":[]},{"title":"虚函数表","level":"1.4.3","depth":2,"path":"class/vptr.md","ref":"class/vptr.md","articles":[]}]},"previous":{"title":"const形参和实参","level":"1.3.1","depth":2,"path":"arguments/arguments_parameters.md","ref":"arguments/arguments_parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","disqus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"roachsinai"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"white","family":"serif","size":2},"highlight":{},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","keywords":"C++, 学习笔记, markdown, gitbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++拾遗","links":{"home":false,"about":false,"issues":false,"contribute":false,"sidebar":{"Roach's Blog":"http://roachsinai.github.io/"},"tail":{"C++拾遗":"http://roachsinai.github.io/Cpp-learning-notes/"},"gitbook":false,"sharing":{"google":true,"facebook":true,"twitter":true,"weibo":true,"qq":true,"qrcode":true}},"introduction":{"path":"README.md","title":"学习就是踽踽前行"},"gitbook":"*","description":"C++学习笔记"},"file":{"path":"arguments/toplevel_const.md","mtime":"2016-08-17T16:56:15.715Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-17T17:03:38.637Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,496 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>数组为什么不能进行赋值 · C++拾遗</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="const_static.html" />
+    
+    
+    <link rel="prev" href="array.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://roachsinai.github.io/" target="_blank" class="custom-link">Roach's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="array.html">
+            
+                <a href="array.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="array_lvalue.html">
+            
+                <a href="array_lvalue.html">
+            
+                    
+                    数组为什么不能进行赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="const_static.html">
+            
+                <a href="const_static.html">
+            
+                    
+                    const and static
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../arguments/">
+            
+                <a href="../arguments/">
+            
+                    
+                    参数传递
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../arguments/arguments_parameters.html">
+            
+                <a href="../arguments/arguments_parameters.html">
+            
+                    
+                    const形参和实参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../arguments/toplevel_const.html">
+            
+                <a href="../arguments/toplevel_const.html">
+            
+                    
+                    顶层const
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../class/">
+            
+                <a href="../class/">
+            
+                    
+                    类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../class/member_function.html">
+            
+                <a href="../class/member_function.html">
+            
+                    
+                    成员函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../class/access_control.html">
+            
+                <a href="../class/access_control.html">
+            
+                    
+                    访问、继承说明符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../class/vptr.html">
+            
+                <a href="../class/vptr.html">
+            
+                    
+                    虚函数表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                    Programming tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../tips/cstring_parameter.html">
+            
+                <a href="../tips/cstring_parameter.html">
+            
+                    
+                    传递字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../tips/floats_compare.html">
+            
+                <a href="../tips/floats_compare.html">
+            
+                    
+                    浮点数比较
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../end/">
+            
+                <a href="../end/">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >数组为什么不能进行赋值</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6570;&#x7EC4;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x8D4B;&#x503C;1">&#x6570;&#x7EC4;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x8D4B;&#x503C;<sup><a href="#fn_1" id="reffn_1">1</a></sup></h1><blockquote><p>&#x4E8B;&#x60C5;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6743;&#x8861;&#x7684;&#x8FC7;&#x7A0B;</p></blockquote><p>&#x6E90;&#x4EE3;&#x7801;&#x7EA7;&#x522B;&#x548C;C&#x8BED;&#x8A00;&#x517C;&#x5BB9;&#x6027;&#x7684;&#x8003;&#x8651;&#x3002;&#x5F53;&#x5E74;&#x7684;C++&#x5B8C;&#x5168;&#x5411;&#x4E0B;&#x517C;&#x5BB9;C&#xFF1B;&#x867D;&#x7136;&#x73B0;&#x5728;&#x6807;&#x51C6;C&#x548C;&#x6807;&#x51C6;C++&#x6709;&#x76F8;&#x5F53;&#x5927;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x4F46;&#x662F;&#x8868;&#x9762;&#x4E0A;&#x7684;&#x516C;&#x5171;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x90FD;&#x6CA1;&#x6709;&#x5F88;&#x5927;&#x6539;&#x53D8;&#x3002;</p><p>C&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x6570;&#x7EC4;&#x5728;&#x8BB8;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x9690;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x6307;&#x5411;&#x6570;&#x7EC4;&#x9996;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6307;&#x9488;&#xFF08;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x79F0;&#x4E3A;&#x9000;&#x5316;&#xFF09;&#x3002;&#x6709;&#x4E86;&#x6570;&#x7EC4;&#x7684;&#x9000;&#x5316;&#x7279;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x901A;&#x8FC7;<code>p[i]</code>&#x548C;<code>*(p+i)</code>&#x7684;&#x7B49;&#x4EF7;&#x6027;&#x5C31;&#x53EF;&#x4EE5;&#x4EE5;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x7684;&#x8BED;&#x6CD5;&#x5F62;&#x5F0F;&#x5F15;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#xFF1B;&#x4E14;&#x5728;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x65F6;&#x6570;&#x7EC4;&#x9000;&#x5316;&#x4E3A;&#x6307;&#x9488;&#x5BF9;&#x4E00;&#x822C;&#x76EE;&#x7684;&#x800C;&#x8A00;&#x662F;&#x6BD4;&#x8F83;&#x9AD8;&#x6548;&#x7684;&#xFF0C;&#x65E0;&#x9700;&#x6309;&#x503C;&#x4F20;&#x9012;&#xFF08;&#x590D;&#x5236;&#xFF09;&#x6574;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5BF9;&#x4E8E;operator=&#x800C;&#x8A00;&#xFF0C;&#x4E3A;&#x4E86;&#x7EF4;&#x62A4;&#x5DE6;&#x64CD;&#x4F5C;&#x6570;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x540D;&#x6216;&#x5BF9;&#x5E94;&#x6307;&#x9488;&#x540D;&#x8868;&#x73B0;&#x7684;&#x884C;&#x4E3A;&#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF08;&#x6CE8;&#x610F;C&#x8BED;&#x8A00;&#x4E2D;&#x6CA1;&#x6709;&#x8FD0;&#x7B97;&#x7B26;&#x91CD;&#x8F7D;&#xFF0C;&#x5185;&#x7F6E;&#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x884C;&#x4E3A;&#x5BF9;&#x4E8E;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x800C;&#x8A00;&#x8BED;&#x4E49;&#x5927;&#x4F53;&#x4E00;&#x81F4;&#xFF09;&#xFF0C;&#x6570;&#x7EC4;&#x5728;&#x8FD9;&#x91CC;&#x9000;&#x5316;&#x4E3A;&#x6307;&#x9488;&#x800C;&#x4E0D;&#x8868;&#x793A;&#x6574;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x800C;<strong>&#x6570;&#x7EC4;&#x9000;&#x5316;&#x5F97;&#x5230;&#x7684;&#x6307;&#x9488;&#x662F;&#x5E38;&#x91CF;&#xFF08;&#x6307;&#x9488;&#xFF09;</strong>&#xFF0C;&#x56E0;&#x6B64;&#x6570;&#x7EC4;&#x65E0;&#x6CD5;&#x4F5C;&#x4E3A;operator=&#x7684;&#x5DE6;&#x64CD;&#x4F5C;&#x6570;&#x3002;</p><p>&#x7406;&#x8BBA;&#x4E0A;&#x8981;&#x5B9E;&#x73B0;&#x6570;&#x7EC4;&#x7684;&#x5185;&#x7F6E;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x4E5F;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x4E0D;&#x8FC7;&#x5E94;&#x8BE5;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x4E25;&#x683C;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF08;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x548C;&#x957F;&#x5EA6;&#xFF09;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x6216;&#x8005;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x4F46;&#x5DE6;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x957F;&#x5EA6;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x53F3;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x4F46;&#x8FD9;&#x6837;&#x5E94;&#x7528;&#x5F88;&#x6709;&#x9650;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x8981;&#x7684;&#x3002;&#x800C;&#x4E14;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0A;&#x9762;&#x7684;&#x201C;=&#x201D;&#x7684;&#x4E8C;&#x4E49;&#x6027;&#x95EE;&#x9898;&#x3002;</p><p>&#x5B9E;&#x9645;&#x4E0A;&#x7528;&#x5FAA;&#x73AF;&#x5BF9;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x9010;&#x4E2A;&#x8D4B;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;C&#x6807;&#x51C6;&#x5E93;&#x51FD;&#x6570;memcpy&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FDE;&#x7EED;&#x5B58;&#x50A8;&#x5668;&#x533A;&#x57DF;&#x6309;&#x503C;&#x590D;&#x5236;&#x7684;&#x8D4B;&#x503C;&#x8BED;&#x4E49;&#xFF0C;&#x540C;&#x6837;&#x9002;&#x7528;&#x4E8E;&#x6570;&#x7EC4;&#xFF08;C/C++&#x7684;&#x6570;&#x7EC4;&#x5360;&#x636E;&#x8FDE;&#x7EED;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF09;&#x3002;</p><p>C++&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x6216;&#x5BF9;&#x5E94;&#x7684;std::memcpy&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x5B9E;&#x73B0;&#x6210;&#x5458;&#x4E3A;&#x6570;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#x4F53;/&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x8F7D;operator[]&#x548C;operator=&#x5B9E;&#x73B0;&#x53EF;&#x7528;=&#x8868;&#x793A;&#x8D4B;&#x503C;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x7EC4;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p><pre><code class="lang-C++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> _elementType&gt;
+<span class="hljs-keyword">class</span> MyArray
+{
+<span class="hljs-keyword">private</span>:
+    _elementType* m_array;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> _elementType&amp;); <span class="hljs-comment">//&#x8D4B;&#x503C;&#xFF1A;&#x590D;&#x5236;&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x73B0;&#x53EF;&#x4EE5;&#x7528;std::copy&#x3002;</span>
+    <span class="hljs-keyword">operator</span>=(_elementType*); <span class="hljs-comment">//&#x6307;&#x9488;&#x517C;&#x5BB9;&#x7684;&#x8D4B;&#x503C;&#xFF1A;&#x8003;&#x8651;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#xFF0C;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x3002;&#x5185;&#x7F6E;&#x6570;&#x7EC4;&#x662F;&#x5BC4;&#x5B58;&#x5668;/&#x81EA;&#x52A8;&#x5B58;&#x50A8;&#x7C7B;&#x5BF9;&#x8C61;&#xFF08;&#x52A8;&#x6001;&#x5206;&#x914D;&#x5F97;&#x5230;&#x7684;&#x662F;&#x6307;&#x9488;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</span>
+    _elementType&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-built_in">std</span>::<span class="hljs-keyword">size_t</span>); <span class="hljs-comment">//&#x5F15;&#x7528;&#x5143;&#x7D20;&#x3002;</span>
+    <span class="hljs-keyword">const</span> _elementType&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-built_in">std</span>::<span class="hljs-keyword">size_t</span>) <span class="hljs-keyword">const</span>;
+    <span class="hljs-keyword">operator</span> _elementType*(); <span class="hljs-comment">//&#x9000;&#x5316;&#x3002;</span>
+    <span class="hljs-keyword">operator</span> <span class="hljs-keyword">const</span> _elementType*() <span class="hljs-keyword">const</span>;
+};</code></pre>
+<p>&#xFF08;&#x5F53;&#x7136;&#x4E0D;&#x652F;&#x6301;&#x201C;=&#x201D;&#x7684;&#x8BBE;&#x8BA1;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x7F3A;&#x9677;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x5BFC;&#x81F4;&#x6570;&#x7EC4;&#x4E0D;&#x662F;first level citizen&#xFF0C;&#x9664;&#x4E86;&#x76F4;&#x89C2;&#x6027;&#x95EE;&#x9898;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x5B83;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x4E8B;&#x5B9E;&#x4E0A;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x7528;&#x5FAA;&#x73AF;&#x5B9E;&#x73B0;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x95F4;&#x90E8;&#x5206;&#x5143;&#x7D20;&#x7684;&#x590D;&#x5236;&#xFF0C;&#x652F;&#x6301;&#x5185;&#x7F6E;&#x201C;=&#x201D;&#x7684;&#x8BDD;&#x4E00;&#x4E2A;&#x4E00;&#x91CD;&#x5FAA;&#x73AF;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x63A8;&#x65AD;&#x51FA;&#x590D;&#x5236;&#x7EC6;&#x8282;&#xFF1B;&#x800C;&#x73B0;&#x5728;&#x7684;&#x9700;&#x8981;&#x7528;&#x591A;&#x91CD;&#x5FAA;&#x73AF;&#x201C;=&#x201D;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x4E00;&#x91CD;&#x5FAA;&#x73AF;&#x5D4C;&#x5957;memcpy&#x4E4B;&#x7C7B;&#x7684;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x590D;&#x5236;&#x7EC6;&#x8282;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5F62;&#x5F0F;&#x4E0A;&#x66F4;&#x9EBB;&#x70E6;&#x3002;&#xFF09;</p><h2 id="references">References</h2><ol><li><a href="http://zhidao.baidu.com/question/179864633.html" target="_blank">&#x539F;&#x521B;&#x56DE;&#x7B54;&#x56E2;&#x767E;&#x5EA6;&#x77E5;&#x9053;&#x7684;&#x56DE;&#x7B54;</a>
+</li></ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="array.html" class="navigation navigation-prev " aria-label="Previous page: 数组">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="const_static.html" class="navigation navigation-next " aria-label="Next page: const and static">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"数组为什么不能进行赋值","level":"1.2.2","depth":2,"next":{"title":"const and static","level":"1.2.3","depth":2,"path":"types/const_static.md","ref":"types/const_static.md","articles":[]},"previous":{"title":"数组","level":"1.2.1","depth":2,"path":"types/array.md","ref":"types/array.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","disqus","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"roachsinai"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"white","family":"serif","size":2},"highlight":{},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","keywords":"C++, 学习笔记, markdown, gitbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++拾遗","links":{"home":false,"about":false,"issues":false,"contribute":false,"sidebar":{"Roach's Blog":"http://roachsinai.github.io/"},"tail":{"C++拾遗":"http://roachsinai.github.io/Cpp-learning-notes/"},"gitbook":false,"sharing":{"google":true,"facebook":true,"twitter":true,"weibo":true,"qq":true,"qrcode":true}},"introduction":{"path":"README.md","title":"学习就是踽踽前行"},"gitbook":"*","description":"C++学习笔记"},"file":{"path":"types/array_lvalue.md","mtime":"2016-08-17T16:56:15.717Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-17T17:03:38.637Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
