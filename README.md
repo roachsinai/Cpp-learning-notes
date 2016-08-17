@@ -2,7 +2,7 @@
 
 > C++拾遗
 
-On the way to be a good cpp user.
+On the way to be a good cpp programmer.
 
 ## 项目地址
 
