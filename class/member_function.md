@@ -31,3 +31,38 @@ the type is "int (MyArray::*)(int)" // since it is a non-static member function 
 ```
 cout << typeid(func).name() << endl;
 ```
+
+## 输出成员函数地址
+
+```
+class Base
+{ 
+public:
+	static int a;
+    static void Fun(){}
+    void Fun1(){}
+    virtual void Test(){}
+}; 
+int Base::a=1000; 
+
+class Derived:public Base
+{ 
+}; 
+
+int main(void) 
+{
+
+    Base b;
+
+    printf("%p\n", &Base::Fun); // 3 same
+    printf("%p\n", Base::Fun);
+    printf("%p\n", Derived::Fun);
+
+    void (Base::*ptr)() = &Base::Fun1; // get Fun1 address
+    printf("%p\n", ptr);
+
+    printf("%p\n", *(int*)(*(int*)&b)); // virtual function
+
+    return 0; 
+}
+```
