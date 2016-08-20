@@ -7,7 +7,7 @@
         "title": "学习就是踽踽前行"
     },
     "plugins": [
-        "mathjax", "disqus"
+        "mathjax", "disqus", "ga"
     ],
     "pluginsConfig": {
         "fontSettings": {
@@ -20,6 +20,9 @@
         },
         "disqus": {
             "shortName": "roachsinai"
+        },
+        "ga": {
+            "token": "UA-80570808-2"
         }
     },
     "links": {
