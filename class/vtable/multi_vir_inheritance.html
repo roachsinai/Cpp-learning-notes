@@ -1,0 +1,923 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>带虚函数多虚继承 · C++拾遗</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../library/" />
+    
+    
+    <link rel="prev" href="singel_vir_inheritance.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://roachsinai.github.io/" target="_blank" class="custom-link">Roach's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../assembly/">
+            
+                <a href="../../assembly/">
+            
+                    
+                    汇编
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../assembly/memory_segment.html">
+            
+                <a href="../../assembly/memory_segment.html">
+            
+                    
+                    进程地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../declaration/">
+            
+                <a href="../../declaration/">
+            
+                    
+                    声明和定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../declaration/namespace/namespace.html">
+            
+                <a href="../../declaration/namespace/namespace.html">
+            
+                    
+                    命名空间
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../declaration/namespace/anonymous.html">
+            
+                <a href="../../declaration/namespace/anonymous.html">
+            
+                    
+                    匿名命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../declaration/namespace/global.html">
+            
+                <a href="../../declaration/namespace/global.html">
+            
+                    
+                    全局命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../declaration/namespace/examples.html">
+            
+                <a href="../../declaration/namespace/examples.html">
+            
+                    
+                    namespace across file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../../declaration/namespace/symbols.html">
+            
+                <a href="../../declaration/namespace/symbols.html">
+            
+                    
+                    命名空间与变量符号名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../declaration/links.html">
+            
+                <a href="../../declaration/links.html">
+            
+                    
+                    内部、外部连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../declaration/extern.html">
+            
+                <a href="../../declaration/extern.html">
+            
+                    
+                    extern
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../declaration/qualified.html">
+            
+                <a href="../../declaration/qualified.html">
+            
+                    
+                    qualified-id
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../declaration/const_static.html">
+            
+                <a href="../../declaration/const_static.html">
+            
+                    
+                    const and static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../declaration/function.html">
+            
+                <a href="../../declaration/function.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../types/">
+            
+                <a href="../../types/">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../types/array.html">
+            
+                <a href="../../types/array.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../types/array_lvalue.html">
+            
+                <a href="../../types/array_lvalue.html">
+            
+                    
+                    数组为什么不能进行赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../arguments/">
+            
+                <a href="../../arguments/">
+            
+                    
+                    参数传递
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../arguments/arguments_parameters.html">
+            
+                <a href="../../arguments/arguments_parameters.html">
+            
+                    
+                    const形参和实参
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../arguments/toplevel_const.html">
+            
+                <a href="../../arguments/toplevel_const.html">
+            
+                    
+                    顶层const
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../member_function.html">
+            
+                <a href="../member_function.html">
+            
+                    
+                    成员函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../access_control.html">
+            
+                <a href="../access_control.html">
+            
+                    
+                    访问、继承说明符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="vptr.html">
+            
+                <a href="vptr.html">
+            
+                    
+                    虚函数表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="singel_inheritance.html">
+            
+                <a href="singel_inheritance.html">
+            
+                    
+                    带虚函数单继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="multi_inheritance.html">
+            
+                <a href="multi_inheritance.html">
+            
+                    
+                    带虚函数多继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="singel_vir_inheritance.html">
+            
+                <a href="singel_vir_inheritance.html">
+            
+                    
+                    带虚函数单虚继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3.4" data-path="multi_vir_inheritance.html">
+            
+                <a href="multi_vir_inheritance.html">
+            
+                    
+                    带虚函数多虚继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../library/">
+            
+                <a href="../../library/">
+            
+                    
+                    库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../library/STL/">
+            
+                <a href="../../library/STL/">
+            
+                    
+                    C++标准库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../../library/STL/sort.html">
+            
+                <a href="../../library/STL/sort.html">
+            
+                    
+                    sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../tips/">
+            
+                <a href="../../tips/">
+            
+                    
+                    Programming tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../tips/program_info.html">
+            
+                <a href="../../tips/program_info.html">
+            
+                    
+                    获取程序信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../tips/cstring_parameter.html">
+            
+                <a href="../../tips/cstring_parameter.html">
+            
+                    
+                    字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../../tips/floats_compare.html">
+            
+                <a href="../../tips/floats_compare.html">
+            
+                    
+                    浮点数比较
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../gcc/">
+            
+                <a href="../../gcc/">
+            
+                    
+                    use gcc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../gcc/compile.html">
+            
+                <a href="../../gcc/compile.html">
+            
+                    
+                    编译链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../../gcc/Advanced.html">
+            
+                <a href="../../gcc/Advanced.html">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../end/">
+            
+                <a href="../../end/">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >带虚函数多虚继承</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x591A;&#x865A;&#x7EE7;&#x627F;">&#x591A;&#x865A;&#x7EE7;&#x627F;</h1><p>&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x91CD;&#x590D;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x95F4;&#x63A5;&#x7236;&#x7C7B;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5E94;&#x8BE5;&#x5C31;&#x662F;&#x5C31;&#x662F;&#x672C;<code>GitBook</code>&#x591A;&#x7EE7;&#x627F;&#x90A3;&#x8282;&#x7684;&#x94BB;&#x77F3;&#x578B;&#x7ED3;&#x6784;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x91CD;&#x590D;&#x7EE7;&#x627F;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p><p><img alt="multi_vir_inheritance" src="../../img/vptr/multi_vir_inheritance.jpg"></p><p>&#x5C06;&#x5E26;&#x865A;&#x51FD;&#x6570;&#x591A;&#x7EE7;&#x627F;&#x90A3;&#x8282;&#x7684;<code>B1</code>&#x548C;<code>B2</code>&#x524D;&#x9762;&#x52A0;&#x4E0A;<code>virtual</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5C31;&#x4F7F;&#x7528;&#x4E86;&#x865A;&#x62DF;&#x7EE7;&#x627F;&#xFF0C;&#x90A3;&#x4E48;&#x4EE3;&#x7801;&#x53EA;&#x7ED9;&#x51FA;&#x6709;&#x6539;&#x52A8;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p><pre><code>class B { };
+class B1 : virtual public B{ };
+class B2: virtual public B{ };
+class D : public B1, public B2{ };
+
+typedef void(*Fun)(void);
+
+int main()
+{
+    D dd;
+    Fun pFun = NULL;
+    int** pVtab = (int**)&amp;dd;
+    cout &lt;&lt; &quot;bytes of dd: &quot; &lt;&lt; sizeof(dd)/4 &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;[0] B1::_vptr-&gt;&quot; &lt;&lt; endl;
+    pFun = (Fun)pVtab[0][0];
+    cout &lt;&lt; &quot;     [0] &quot;;    pFun(); //D::f();
+    pFun = (Fun)pVtab[0][1];
+    cout &lt;&lt; &quot;     [1] &quot;;    pFun(); //D::f1()
+    pFun = (Fun)pVtab[0][2];
+    cout &lt;&lt; &quot;     [2] &quot;;    pFun(); //B1::Bf1();
+    pFun = (Fun)pVtab[0][3];
+    cout &lt;&lt; &quot;     [3] &quot;;
+    cout &lt;&lt; pFun &lt;&lt; endl;
+    pFun = (Fun)pVtab[0][4];
+    cout &lt;&lt; &quot;     [4] &quot;;    pFun(); //D::Df();
+
+    cout &lt;&lt; &quot;[1] B1::ib1 = &quot;;
+    cout &lt;&lt; (int)*((int*)(&amp;dd)+1) &lt;&lt;endl; //B1::ib1
+    cout &lt;&lt; &quot;[2] B1::cb1 = &quot;;
+    cout &lt;&lt; (char)*((int*)(&amp;dd)+2) &lt;&lt; endl; //B1::cb1
+
+    cout &lt;&lt; &quot;[3] B2::_vptr-&gt;&quot; &lt;&lt; endl;
+    pFun = (Fun)pVtab[3][0];
+    cout &lt;&lt; &quot;     [0] &quot;;    pFun(); //D::f();
+    pFun = (Fun)pVtab[3][1];
+    cout &lt;&lt; &quot;     [1] &quot;;    pFun(); //D::f2();
+    pFun = (Fun)pVtab[3][2];
+    cout &lt;&lt; &quot;     [2] &quot;;    pFun(); //B2::Bf2();
+    pFun = (Fun)pVtab[3][3];
+    cout &lt;&lt; &quot;     [3] &quot;;
+    cout &lt;&lt; pFun &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;[4] B2::ib2 = &quot;;
+    cout &lt;&lt; (int)*((int*)(&amp;dd)+4) &lt;&lt;endl; //B2::ib2
+    cout &lt;&lt; &quot;[5] B2::cb2 = &quot;;
+    cout &lt;&lt; (char)*((int*)(&amp;dd)+5) &lt;&lt; endl; //B2::cb2
+
+    cout &lt;&lt; &quot;[6] D::id = &quot;;
+    cout &lt;&lt; *((int*)(&amp;dd)+6) &lt;&lt; endl; //D::id
+    cout &lt;&lt; &quot;[7] D::cd = &quot;;
+    cout &lt;&lt; (char)*((int*)(&amp;dd)+7) &lt;&lt; endl &lt;&lt; endl;//D::cd
+    cout &lt;&lt; &quot;[9] B::ib = &quot;;
+    cout &lt;&lt; *((int*)(&amp;dd)+9) &lt;&lt; endl; //B::ib
+    cout &lt;&lt; &quot;[10] B::cb = &quot;;
+    cout &lt;&lt; (char)*((int*)(&amp;dd)+10) &lt;&lt;endl;//B::cb
+    cout &lt;&lt; &quot;[11]        &quot;;
+    cout &lt;&lt; *((int*)(&amp;dd)+11) &lt;&lt; endl;
+    cout &lt;&lt; &quot;[12] NULL : &quot;;
+    cout &lt;&lt; *((int*)(&amp;dd)+12) &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;[8] B::_vptr-&gt;&quot; &lt;&lt; endl;
+    pFun = (Fun)pVtab[8][0];
+    cout &lt;&lt; &quot;     [0] &quot;;    pFun(); //D::f();
+    pFun = (Fun)pVtab[8][1];
+    cout &lt;&lt; &quot;     [1] &quot;;    pFun(); //B::Bf();
+    pFun = (Fun)pVtab[8][2];
+    cout &lt;&lt; &quot;     [2] &quot;;
+    cout &lt;&lt; pFun &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p><pre><code>bytes of dd: 11
+[0] B1::_vptr-&gt;
+     [0] D::f()
+     [1] D::f1()
+     [2] B1::Bf1()
+     [3] 1
+     [4] D::Df()
+[1] B1::ib1 = 11
+[2] B1::cb1 = 1
+[3] B2::_vptr-&gt;
+     [0] D::f()
+     [1] D::f2()
+     [2] B2::Bf2()
+     [3] 0
+[4] B2::ib2 = 12
+[5] B2::cb2 = 2
+[6] D::id = 100
+[7] D::cd = D
+
+[9] B::ib = 0
+[10] B::cb = B
+[11]        -4446372
+[12] NULL : 0
+[8] B::_vptr-&gt;
+Segmentation fault (&#x6838;&#x5FC3;&#x5DF2;&#x8F6C;&#x50A8;)</code></pre>
+<p>&#x4E0A;&#x9762;&#x7ED3;&#x679C;&#x4E2D;&#xFF0C;&#x5E94;&#x8BE5;&#x6307;&#x5411;&#x57FA;&#x7C7B;<code>B</code>&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x62A5;&#x9519;&#x4E86;&#x4E5F;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x539F;&#x56E0;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x9650;&#x5236;&#x8FD9;&#x79CD;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;&#x3002;&#x5E76;&#x4E14;&#x4E0D;&#x77E5;&#x4E3A;&#x4F55;&#x5728;<code>dd</code>&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x662F;&#x4E2A;&#x8D1F;&#x6570;&#x3002;</p><p><code>&#x9648;&#x7693;</code>&#x5728;<a href="">&#x9177;&#x58F3;</a>&#x4E2D;&#x7ED9;&#x51FA;&#x4E86;&#x5185;&#x5B58;&#x5206;&#x5E03;&#xFF0C;<code>VC</code>&#x7684;&#x5E94;&#x8BE5;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;<code>gcc</code>&#x7684;&#x6709;&#x4E00;&#x5904;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x4E0D;&#x8D34;&#x4E86;&#x3002;</p><h4 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h4><p>&#x611F;&#x89C9;&#x865A;&#x7EE7;&#x627F;&#x591A;&#x7EE7;&#x627F;&#x662F;&#x4E0D;&#x5982;<code>Java</code>&#x5355;&#x7EE7;&#x627F;&#x7B80;&#x6D01;&#xFF0C;&#x4F46;&#x662F;<code>Java</code>&#x7684;&#x63A5;&#x53E3;&#x5E94;&#x8BE5;&#x5408;&#x7740;&#x4E2A;&#x7C7B;&#x4F3C;&#x5427;&#xFF08;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x5F71;&#x54CD;&#x5B50;&#x7C7B;&#xFF09;&#x3002;&#x53E6;&#xFF0C;<code>Java</code>&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x6709;&#x53D8;&#x91CF;&#x4E0D;&#x8FC7;&#x5FC5;&#x987B;&#x662F;<code>public static final</code>.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="singel_vir_inheritance.html" class="navigation navigation-prev " aria-label="Previous page: 带虚函数单虚继承">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../library/" class="navigation navigation-next " aria-label="Next page: 库">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"带虚函数多虚继承","level":"1.6.3.4","depth":3,"next":{"title":"库","level":"1.7","depth":1,"path":"library/README.md","ref":"library/README.md","articles":[{"title":"C++标准库","level":"1.7.1","depth":2,"path":"library/STL/README.md","ref":"library/STL/README.md","articles":[{"title":"sort","level":"1.7.1.1","depth":3,"path":"library/STL/sort.md","ref":"library/STL/sort.md","articles":[]}]}]},"previous":{"title":"带虚函数单虚继承","level":"1.6.3.3","depth":3,"path":"class/vtable/singel_vir_inheritance.md","ref":"class/vtable/singel_vir_inheritance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","disqus","ga","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"roachsinai"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"white","family":"serif","size":2},"highlight":{},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-80570808-2"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","keywords":"C++, 学习笔记, markdown, gitbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++拾遗","links":{"home":false,"about":false,"issues":false,"contribute":false,"sidebar":{"Roach's Blog":"http://roachsinai.github.io/"},"tail":{"C++拾遗":"http://roachsinai.github.io/Cpp-learning-notes/"},"gitbook":false,"sharing":{"google":true,"facebook":true,"twitter":true,"weibo":true,"qq":true,"qrcode":true}},"introduction":{"path":"README.md","title":"学习就是踽踽前行"},"gitbook":"*","description":"C++学习笔记"},"file":{"path":"class/vtable/multi_vir_inheritance.md","mtime":"2016-08-20T11:50:53.158Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-20T12:33:49.727Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
