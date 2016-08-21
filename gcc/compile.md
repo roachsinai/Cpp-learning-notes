@@ -18,7 +18,7 @@ int main(int argc,char *argv[])
 
 #### 生成指定可执行程序名
 
-‘$ g++ helloworld.cpp -o helloworld’
+`$ g++ helloworld.cpp -o helloworld`
 
 #### 使用`gcc`编译`cpp`
 
