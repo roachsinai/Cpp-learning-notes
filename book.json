@@ -7,7 +7,14 @@
         "title": "学习就是踽踽前行"
     },
     "plugins": [
-        "mathjax", "disqus", "ga"
+        "disqus",
+        "ga",
+        "search",
+        "-search-pro@1.0.7",
+        "github",
+        "-toggle-chapters",
+        "ace",
+        "expandable-chapters"
     ],
     "pluginsConfig": {
         "fontSettings": {
@@ -15,15 +22,32 @@
         "family": "serif",
         "size": 2
         },
-        "mathjax":{
-            "forceSVG": true
-        },
         "disqus": {
             "shortName": "roachsinai"
         },
         "ga": {
             "token": "UA-80570808-2"
-        }
+        },
+        "search-pro": {
+            "cutWordLib": "nodejieba",
+            "defineWord" : ["cpp-notes"]
+        },
+        "github": {
+            "url": "https://github.com/roachsinai"
+        },
+        "sharing": {
+            "weibo": true,
+            "facebook": true,
+            "twitter": true,
+            "google": false,
+            "instapaper": false,
+             "vk": false,
+            "all": [
+                "facebook", "google", "twitter",
+                "weibo", "instapaper"
+            ]
+        },
+        "expandable-chapters":{}
     },
     "links": {
         "home": false,
@@ -36,15 +60,7 @@
         "tail": {
             "C++拾遗": "http://roachsinai.github.io/Cpp-learning-notes/"
         },
-        "gitbook": false,
-        "sharing": {
-            "google" : true,
-            "facebook" : true,
-            "twitter" : true,
-            "weibo" : true,
-            "qq" : true,
-            "qrcode" : true
-        }
+        "gitbook": false
     },
     "pdf": {
         "toc": true,
