@@ -2,7 +2,7 @@
 
 由于浮点数是对实数的近似表现，就会出现认为两个浮点数相同，但直接使用 == 判断结果不相同的情况。栗子[^1]：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 #include <iostream>
 #include <iomanip> // for std::setprecision()
 
@@ -16,11 +16,11 @@ int main()
     double d2(0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1); // should equal 1.0
     std::cout << d2 << std::endl; // 0.99999999999999989
 }
-```
+{%endace%}
 
 判断方法：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 #include <iostream>
 #include <cmath>
 
@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-```
+{%endace%}
 
 ## References
 

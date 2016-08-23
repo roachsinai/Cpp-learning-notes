@@ -6,7 +6,7 @@
 
 下面，用代码进行验证：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class Base {
 public:
     int i_a;
@@ -41,7 +41,8 @@ int main()
 虚函数表 — 第一个函数地址：0x80489e8
 Base::f  // 输出的内容确实是第一个虚函数的内容
 10       // 输出了对象`b`的成员`i_a`
-```
+// end
+{%endace%}
 
 上面这个代码，如果能理解那对指针已经有一定掌握了。
 
@@ -84,9 +85,9 @@ Base::f  // 输出的内容确实是第一个虚函数的内容
 
 那么，按照下面的程序运行时就实现了多态！
 
-```
+{%ace edit=true, lang='c_cpp'%}
 Base *b = new Derive();
 b->f();
-```
+{%endace%}
 
 本`GitBook`挖的坑，后面都有填。。。

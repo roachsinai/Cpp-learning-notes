@@ -2,7 +2,7 @@
 
 ## 单文件生成可执行程序
 
-```
+{%ace edit=true, lang='c_cpp'%}
 /* helloworld.cpp */
 #include <iostream>
 int main(int argc,char *argv[])
@@ -10,7 +10,7 @@ int main(int argc,char *argv[])
     std::cout << "hello, world" << std::endl;
     return(0);
 }
-```
+{%endace%}
 
 #### 默认生成 a.out
 

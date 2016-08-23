@@ -4,7 +4,7 @@
 
 作用域运算符还可以用在类中。同样在`cpp`中定义类的函数时使用：`void A::foo(){}`，同样使得函数名可以匹配到类的函数上，类似还有类静态变量的定义。
 
-```
+{%ace edit=true, lang='c_cpp'%}
 //test.cpp
 #include<iostream>
 using namespace std;
@@ -35,13 +35,13 @@ int main()
 {
     foo();
 }
-```
+{%endace%}
 
 使用下面命令编译成目标文件：`g++ -c test.cpp -o test.o`
 
 并查看其中符号：`objdump -t test.o`
 
-```
+{%ace edit=true, lang='c_cpp'%}
 test.o：     文件格式 elf64-x86-64
 
 SYMBOL TABLE:
@@ -68,4 +68,4 @@ SYMBOL TABLE:
 0000000000000000         *UND*	0000000000000000 .hidden __dso_handle
 0000000000000000         *UND*	0000000000000000 _ZNSt8ios_base4InitD1Ev
 0000000000000000         *UND*	0000000000000000 __cxa_atexit
-```
+{%endace%}

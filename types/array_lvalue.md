@@ -12,7 +12,7 @@ C语言中，数组在许多情况下都会隐式转换为对应的指向数组�
 
 C++中，可以使用循环或对应的std::memcpy。此外，也可以自行实现成员为数组的结构体/类，然后重载operator[]和operator=实现可用=表示赋值的自定义数组。例如：
 
-```C++
+{%ace edit=true, lang='c_cpp'%}
 template<typename _elementType>
 class MyArray
 {
@@ -26,7 +26,7 @@ public:
     operator _elementType*(); //退化。
     operator const _elementType*() const;
 };
-```
+{%endace%}
 
 （当然不支持“=”的设计也有一些缺陷。这样的语言特性导致数组不是first level citizen，除了直观性问题外，还有其它的副作用。例如，多维数组事实上是数组的数组，如果要用循环实现多维数组间部分元素的复制，支持内置“=”的话一个一重循环就够了，编译器可以推断出复制细节；而现在的需要用多重循环“=”，或者使用一重循环嵌套memcpy之类的用于实现复制细节的函数，形式上更麻烦。）
 

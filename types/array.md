@@ -2,7 +2,7 @@
 
 #### 不仅数组里面的元素是某类型，**数组就是一种类型**
 
-```
+{%ace edit=true, lang='c_cpp'%}
 #include<iostream>
 #include<typeinfo>
 
@@ -16,7 +16,7 @@ int main()
 
     return 0;
 }
-```
+{%endace%}
 
 这里`arr`就是一个可以放`5`个字符的数组，而`char (*p)[5]`则`p`是一个指向和`arr`同类型的指针。
 
@@ -28,7 +28,7 @@ int main()
 - `&arr`
 - 使用`"abcd"`来初始化`arr`时;
 
-```
+{%ace edit=true, lang='c_cpp'%}
 int main()
 {
     char arr[] = "abcd";
@@ -43,14 +43,17 @@ int main()
 
     return 0;
 }
-```
+
+{%endace%}
 
 #### 二级指针和二级数组
 
-```
+从下面程序可以发现，`**`和`[][]`通过`*ii_a`可以得到数组第一行的结果，但是使用`**ii_a`就不正确了,而`arr[1]`得到的还是地址。
+
+{%ace edit=true, lang='c_cpp'%}
 int main()
 {
-    int arr[][3] = {{1,2,3},{4,5,6}};
+    int arr[][3] = { {1,2,3},{4,5,6} };
 	int** ii_a = (int**)arr;
     
     cout << typeid(arr).name() << endl; // A2_A3_i
@@ -60,14 +63,14 @@ int main()
 	cout << &arr << endl;      // 0xffec6d6c
     cout << arr[1] << endl;    // 0xffe2d048
     
-    cout << *ii_a << endl;              // 1 现在变成了一级指针 Pi
+    cout << *ii_a << endl;              // 1 Pi
 	cout << (int)ii_a[1] << endl;       // 2
 	cout << *arr[1] << endl;            // 4
-	cout << **ii_a << endl;    // 访问地址为1的地址程序崩溃
+	cout << **ii_a << endl;    // error: access memory 1
+    
+    return 0;
 }
-```
-
-从程序可以发现，`**`和`[][]`通过`*ii_a`可以得到数组第一行的结果，但是使用`**ii_a`就不正确了,而`arr[1]`得到的还是地址。
+{%endace%}
 
 #### References
 

@@ -8,7 +8,7 @@
 
 我们的类继承的源代码如下所示：父类的成员初始为10，20，30，子类的为100
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class Base1 {
 public:
     int ibase1;
@@ -113,11 +113,11 @@ int main()
     
     return 0;
 }
-```
+{%endace%}
 
 上面程序中，注意使用了一个`s`变量，其中用到了`sizof(Base1)`来找下一个类的偏移量（因为声明的基类中成员是`int`成员，所以是`8`个字节要加上虚函数表地址所占`4`个字节，所以没有对齐问题）。输出结果：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 [0] Base1::_vptr->
      [0] Derive::f()
      [1] Base1::g()
@@ -138,7 +138,7 @@ int main()
      [3] 0
 [5] Base3.ibase3 = 30
 [6] Derive.iderive = 100
-```
+{%endace%}
 
 使用图片表示则是这个样子：
 
@@ -155,7 +155,7 @@ int main()
 
 代码的变化：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class Base1 {
 public:
     int ibase1;
@@ -208,11 +208,11 @@ int main()
     cout << "[5] Derive.iderive = " << (int)pVtab[5] << endl;
     return 0;
 }
-```
+{%endace%}
 
 代码为什么这么些，因为我费了点时间，测试子类对象的布局。输出的结果：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 [0] Base2::_vptr->   // 第一个基类竟然是 Base1
      [0] Derive::f()
      [1] Base2::g()
@@ -227,7 +227,7 @@ int main()
      [3] 0
 [4] Base3.ibase3 = 30
 [5] Derive.iderive = 100
-```
+{%endace%}
 
 本来认为基类顺序是不发生变化的，可是写的测试代码竟然不对呀。所以可以发现：
 
@@ -240,7 +240,7 @@ int main()
 
 代码变化部分：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class Derive : public Base1, public Base2, public Base3 {
 public:
     int iderive;
@@ -248,11 +248,11 @@ public:
     virtual void f1() { cout << "Derive::f1()" << endl; }
     virtual void g() { cout << "Derive::g()" << endl; }
 };
-```
+{%endace%}
 
 结果：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 [0] Base2::_vptr->
      [0] Base2::f()
      [1] Derive::g()
@@ -267,7 +267,7 @@ public:
      [3] 0
 [4] Base3.ibase3 = 30
 [5] Derive.iderive = 100
-```
+{%endace%}
 
 记得，我在单继承那节有提出一个问题，结合这里的输出结果，基本可以了解`C++`实现多态的原理了，敲黑板：
 
@@ -283,7 +283,7 @@ public:
 
 其类继承的源代码如下所示。其中，每个类都有两个变量，一个是整形（`4`字节），一个是字符（`1`字节），而且还有自己的虚函数，自己`overwrite`父类的虚函数。如子类`D`中，`f()`覆盖了超类的函数， `f1()` 和`f2()` 覆盖了其父类的虚函数，`Df()`为自己的虚函数。
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class B
 {
     public:
@@ -385,7 +385,7 @@ int main()
     cout << "[11] D::cd = " << (char)(int)pVtab[11] << endl;
     return 0;
 }
-```
+{%endace%}
 
 输出结果：
 
@@ -399,12 +399,13 @@ int main()
 
 可以看见，最顶端的父类`B`其成员变量存在于`B1`和`B2`中，并被`D`给继承下去了。而在`D`中，其有`B1`和`B2`的实例，于是`B`的成员在`D`的实例中存在两份，一份是`B1`继承而来的，另一份是`B2`继承而来的。所以，如果我们使用以下语句，则会产生二义性编译错误：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 D d;
 d.ib = 0; //二义性错误
 d.Bf();   //二义性错误
 d.B1::ib = 1; //正确
 d.B2::ib = 2; //正确
-```
+// end
+{%endace%}
 
 注意，上面例程中的最后两条语句存取的是两个变量。虽然我们消除了二义性的编译错误，但`B`类在`D`中还是有两个实例，这种继承造成了数据的重复，我们叫这种继承为重复继承。重复的基类数据成员可能并不是我们想要的。所以，`C++`引入了虚基类的概念。

@@ -6,7 +6,7 @@
 
 代码如下：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class B
 {
     public:
@@ -85,11 +85,10 @@ int main()
 
     return 0;
 }
-```
+{%endace%}
 
 结果：
-
-```
+{%ace edit=true, lang='c_cpp'%}
 [0] B1::_vptr->
      [0] B1::f()
      [1] B1::f1()
@@ -104,7 +103,7 @@ int main()
 [4] B::ib = 0
 [5] B::cb = B
 [6] NULL  = 0
-```
+{%endace%}
 
 最明显的差别就是这个单继承中多了一个虚函数表，**单继承的情况下虚继承会增加一个基类自己的虚函数表，而非虚继承却没有**.
 
@@ -122,7 +121,7 @@ ps：本来不想验证非虚继承函数是不是一个函数得，不是的话
 
 但是微软编译器可以直接输出对象完整的内存布局啊，真实不错，有一统江湖的气质！方法：`项目属性->配置属性->C/C++->命令行->其他选项`添加`/d1reportSingleClassLayout[类名]`[^1]。比如这里就是`/d1reportSingleClassLayoutB1`，也可以使用命令：`cl classLayout.cpp /d1reportSingleClassLayoutB1`，会得到下面的输出结果：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 1>------ 已启动生成: 项目: Vptr, 配置: Debug Win32 ------
 1>  main.cpp
 1>  class B1	size(32):
@@ -165,7 +164,7 @@ ps：本来不想验证非虚继承函数是不是一个函数得，不是的话
 1>  
 1>  
 1>  Vptr.vcxproj -> D:\Code_Inc\VS2012\Test\Vptr\Vptr\Debug\Vptr.exe
-```
+{%endace%}
 
 我们看到`B1 vftable`中却没有它的虚函数`f()`。所以编译器都好任性~~ 不过微软这个布局输出真心赞，不用再自己猜想了T_T.
 

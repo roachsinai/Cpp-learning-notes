@@ -4,7 +4,7 @@
 
 推荐定义方法的一个栗子[^1]:
 
-```
+{%ace edit=true, lang='c_cpp'%}
 // *.h
 namespace MyNamespace {
     class MyClass {
@@ -18,11 +18,11 @@ int MyNamespace::MyClass::foo()
 {
     //  ...
 }
-```
+{%endace%}
 
 不成功的栗子[^2]:
 
-```
+{%ace edit=true, lang='c_cpp'%}
 // FileThree.h
 #ifndef FILETHREE
 #define FILETHREE
@@ -59,7 +59,8 @@ int main()
 }
 
 error: 'blueprint': identifier not found
-```
+{%endace%}
+
 没有成功的原因就是，必须在源文件中引入namespace的声明——添加`namespace blue{}`（这一步头文件中已有），更重要的是要在其中在添加`blueprint`函数的声明。
 
 `namespace blue{void blueprint(int nVar);}`添加到`main.cpp`中之后，**你才引入了函数`blueprint`的声明**，编译器才可以进行编译！

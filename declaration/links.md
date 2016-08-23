@@ -10,13 +10,13 @@
 
 > The term free function in C++ simply refers to non-member functions. Every function that is not a member function is a free function.[^2]
 
-```
+{%ace edit=true, lang='c_cpp'%}
 struct X {
     void f() {}               // not a free function
 };
 void g() {}                   // free function
 int h(int, int) { return 1; } // also a free function
-```
+{%endace%}
 
 #### 内部连接
 

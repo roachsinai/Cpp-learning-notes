@@ -14,7 +14,7 @@
 
 使用`::`可以的得到外部变量！
 
-```
+{%ace edit=true, lang='c_cpp'%}
 int a = 10;
 
 namespace N
@@ -29,7 +29,7 @@ namespace N
          std::cout << ::a << std::endl;    //prints 10
     }
 }
-```
+{%endace%}
 
 #### References
 

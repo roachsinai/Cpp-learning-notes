@@ -26,7 +26,7 @@
 
 一下面代码为例[^2]:
 
-```
+{%ace edit=true, lang='c_cpp'%}
 struct Base
 {
     virtual void foo() { cout &lt;&lt; "foo"; }
@@ -55,7 +55,8 @@ int main()
     
     delete b;
     return 0;
-```
+}
+{%endace%}
  
 上面是我在知乎上看到的一个回答，就当作栗子了：程序根据你输入数字的不同作出不同的反馈。
 

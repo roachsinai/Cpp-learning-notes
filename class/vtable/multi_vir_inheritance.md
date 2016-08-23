@@ -6,7 +6,7 @@
 
 将带虚函数多继承那节的`B1`和`B2`前面加上`virtual`关键字，就使用了虚拟继承，那么代码只给出有改动的地方：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 class B { };
 class B1 : virtual public B{ };
 class B2: virtual public B{ };
@@ -79,11 +79,11 @@ int main()
 
     return 0;
 }
-```
+{%endace%}
 
 输出结果：
 
-```
+{%ace edit=true, lang='c_cpp'%}
 bytes of dd: 11
 [0] B1::_vptr->
      [0] D::f()
@@ -109,7 +109,8 @@ bytes of dd: 11
 [12] NULL : 0
 [8] B::_vptr->
 Segmentation fault (核心已转储)
-```
+// end
+{%endace%}
 
 上面结果中，应该指向基类`B`的虚函数表的地方，报错了也没有找到原因，有可能是编译器限制这种访问方式。并且不知为何在`dd`的最后一个字节是个负数。
 
