@@ -21,11 +21,19 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -245,9 +253,23 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../../declaration/extern.html">
+        <li class="chapter " data-level="1.3.3" data-path="../../declaration/keyword/keyword.html">
             
-                <a href="../../declaration/extern.html">
+                <a href="../../declaration/keyword/keyword.html">
+            
+                    
+                    keyword
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../declaration/keyword/extern.html">
+            
+                <a href="../../declaration/keyword/extern.html">
             
                     
                     extern
@@ -255,6 +277,37 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../declaration/keyword/const_static.html">
+            
+                <a href="../../declaration/keyword/const_static.html">
+            
+                    
+                    const and static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../declaration/keyword/typedef.html">
+            
+                <a href="../../declaration/keyword/typedef.html">
+            
+                    
+                    typedef
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -271,20 +324,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../../declaration/const_static.html">
-            
-                <a href="../../declaration/const_static.html">
-            
-                    
-                    const and static
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../../declaration/function.html">
+        <li class="chapter " data-level="1.3.5" data-path="../../declaration/function.html">
             
                 <a href="../../declaration/function.html">
             
@@ -720,7 +760,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5355;&#x865A;&#x7EE7;&#x627F;">&#x5355;&#x865A;&#x7EE7;&#x627F;</h1><p>&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x548C;&#x7EE7;&#x627F;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#xFF0C;&#x5728;&#x57FA;&#x7C7B;&#x524D;&#x6DFB;&#x52A0;<code>virtual</code>&#x5173;&#x952E;&#x5B57;</p><h4 id="&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x5355;&#x57FA;&#x7C7B;&#x5185;&#x5B58;&#x5E03;&#x5C40;">&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x5355;&#x57FA;&#x7C7B;&#x5185;&#x5B58;&#x5E03;&#x5C40;</h4><p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p><pre><code>class B
+                                <h1 id="&#x5355;&#x865A;&#x7EE7;&#x627F;">&#x5355;&#x865A;&#x7EE7;&#x627F;</h1><p>&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x548C;&#x7EE7;&#x627F;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#xFF0C;&#x5728;&#x57FA;&#x7C7B;&#x524D;&#x6DFB;&#x52A0;<code>virtual</code>&#x5173;&#x952E;&#x5B57;</p><h4 id="&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x5355;&#x57FA;&#x7C7B;&#x5185;&#x5B58;&#x5E03;&#x5C40;">&#x865A;&#x62DF;&#x7EE7;&#x627F;&#x5355;&#x57FA;&#x7C7B;&#x5185;&#x5B58;&#x5E03;&#x5C40;</h4><p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p><div class="ace"><div class="aceCode" data-config="{&quot;edit&quot;:true,&quot;lang&quot;:&quot;c_cpp&quot;,&quot;check&quot;:false,&quot;theme&quot;:false}">class B
 {
     public:
         int ib;
@@ -797,8 +837,11 @@ int main()
     cout &lt;&lt; (int)*((int*)(&amp;bb1)+4) &lt;&lt;endl;
 
     return 0;
-}</code></pre>
-<p>&#x7ED3;&#x679C;&#xFF1A;</p><pre><code>[0] B1::_vptr-&gt;
+}<br></div></div>
+
+
+
+<p>&#x7ED3;&#x679C;&#xFF1A;</p><div class="ace"><div class="aceCode" data-config="{&quot;edit&quot;:true,&quot;lang&quot;:&quot;c_cpp&quot;,&quot;check&quot;:false,&quot;theme&quot;:false}">[0] B1::_vptr-&gt;
      [0] B1::f()
      [1] B1::f1()
      [2] B1::Bf1()
@@ -811,8 +854,11 @@ int main()
      [2] 0x1
 [4] B::ib = 0
 [5] B::cb = B
-[6] NULL  = 0</code></pre>
-<p>&#x6700;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x522B;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x5355;&#x7EE7;&#x627F;&#x4E2D;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#x8868;&#xFF0C;<strong>&#x5355;&#x7EE7;&#x627F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x865A;&#x7EE7;&#x627F;&#x4F1A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x81EA;&#x5DF1;&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#xFF0C;&#x800C;&#x975E;&#x865A;&#x7EE7;&#x627F;&#x5374;&#x6CA1;&#x6709;</strong>.</p><p>&#x800C;&#x4E24;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#x8868;&#x4E2D;&#x7684;&#xFF0C;&#x7B2C;&#x4E00;&#x865A;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x5B50;&#x7C7B;&#x7684;&#x865A;&#x51FD;&#x6570;<code>f()</code>&#xFF0C;&#x597D;&#x50CF;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF08;&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;&#x561B;&#xFF09;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6D4B;&#x8BD5;&#x4E86;&#x4E00;&#x4E0B;<code>pVtab[0][0]</code>&#x548C;<code>pVtab[3][0]</code>&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x5B50;&#x7C7B;&#x7684;<code>f()</code>&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x7279;&#x4E48;&#x521A;&#x6446;&#x597D;&#x7684;&#x684C;&#x5B50;&#x6709;&#x6728;&#x6709;&#x554A;(&#x256F;&#xB0;&#x414;&#xB0;)&#x256F;.</p><p>&#x90A3;&#x662F;&#x4E0D;&#x662F;&#x54EA;&#x91CC;&#x9519;&#x4E86;&#x5462;&#xFF0C;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x4EE3;&#x7801;&#x4E2D;&#x6CE8;&#x91CA;&#xFF08;&#x6DFB;&#x52A0;&#x4E09;&#x884C;&#x4EE3;&#x7801;&#xFF09;&#xFF0C;&#x786E;&#x5B9E;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x540C;&#x6837;&#x7684;&#x4E1C;&#x897F;&#x4F46;&#x662F;&#x51FD;&#x6570;&#x5730;&#x5740;&#x4E0D;&#x4E00;&#x6837;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x7684;&#x539F;&#x56E0;&#x8FD9;&#x6837;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x4E0D;&#x4E0B;&#x53BB;&#x4E86;&#x3002;</p><p><code>gcc</code>&#x4E0D;&#x597D;&#x7528;&#x770B;&#x770B;<code>&#x5FAE;&#x8F6F;</code>&#x600E;&#x4E48;&#x662F;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x5427;&#x3002;</p><p>ps&#xFF1A;&#x672C;&#x6765;&#x4E0D;&#x60F3;&#x9A8C;&#x8BC1;&#x975E;&#x865A;&#x7EE7;&#x627F;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F97;&#xFF0C;&#x4E0D;&#x662F;&#x7684;&#x8BDD;(&#x256F;&#xB0;&#x414;&#xB0;)&#x256F;&#x3002;&#x5E78;&#x597D;&#x5728;<code>gcc 6.1.1</code>&#x662F;&#x5B83;&#x4EEC;&#x5730;&#x5740;&#x662F;&#x76F8;&#x540C;&#x7684;&#x252C;&#x2500;&#x252C; &#x30CE;(&apos;-&apos;&#x30CE;)</p><h6 id="visual-studio-2013">visual studio 2013</h6><p>&#x4E0A;&#x6765;&#x5C31;&#x591A;&#x51FA;&#x6765;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;&#x865A;&#x51FD;&#x6570;&#x8868;&#x6307;&#x9488;(_vftptr)&#x3001;&#x865A;&#x57FA;&#x7C7B;&#x8868;&#x6307;&#x9488;(_bvtptr)&#x3002;</p><p>&#x4F46;&#x662F;&#x5FAE;&#x8F6F;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5BF9;&#x8C61;&#x5B8C;&#x6574;&#x7684;&#x5185;&#x5B58;&#x5E03;&#x5C40;&#x554A;&#xFF0C;&#x771F;&#x5B9E;&#x4E0D;&#x9519;&#xFF0C;&#x6709;&#x4E00;&#x7EDF;&#x6C5F;&#x6E56;&#x7684;&#x6C14;&#x8D28;&#xFF01;&#x65B9;&#x6CD5;&#xFF1A;<code>&#x9879;&#x76EE;&#x5C5E;&#x6027;-&gt;&#x914D;&#x7F6E;&#x5C5E;&#x6027;-&gt;C/C++-&gt;&#x547D;&#x4EE4;&#x884C;-&gt;&#x5176;&#x4ED6;&#x9009;&#x9879;</code>&#x6DFB;&#x52A0;<code>/d1reportSingleClassLayout[&#x7C7B;&#x540D;]</code><sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;&#x6BD4;&#x5982;&#x8FD9;&#x91CC;&#x5C31;&#x662F;<code>/d1reportSingleClassLayoutB1</code>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#xFF1A;<code>cl classLayout.cpp /d1reportSingleClassLayoutB1</code>&#xFF0C;&#x4F1A;&#x5F97;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p><pre><code>1&gt;------ &#x5DF2;&#x542F;&#x52A8;&#x751F;&#x6210;: &#x9879;&#x76EE;: Vptr, &#x914D;&#x7F6E;: Debug Win32 ------
+[6] NULL  = 0<br></div></div>
+
+
+
+<p>&#x6700;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x522B;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x5355;&#x7EE7;&#x627F;&#x4E2D;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#x8868;&#xFF0C;<strong>&#x5355;&#x7EE7;&#x627F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x865A;&#x7EE7;&#x627F;&#x4F1A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x81EA;&#x5DF1;&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#xFF0C;&#x800C;&#x975E;&#x865A;&#x7EE7;&#x627F;&#x5374;&#x6CA1;&#x6709;</strong>.</p><p>&#x800C;&#x4E24;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#x8868;&#x4E2D;&#x7684;&#xFF0C;&#x7B2C;&#x4E00;&#x865A;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x5B50;&#x7C7B;&#x7684;&#x865A;&#x51FD;&#x6570;<code>f()</code>&#xFF0C;&#x597D;&#x50CF;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF08;&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;&#x561B;&#xFF09;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6D4B;&#x8BD5;&#x4E86;&#x4E00;&#x4E0B;<code>pVtab[0][0]</code>&#x548C;<code>pVtab[3][0]</code>&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x5B50;&#x7C7B;&#x7684;<code>f()</code>&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x7279;&#x4E48;&#x521A;&#x6446;&#x597D;&#x7684;&#x684C;&#x5B50;&#x6709;&#x6728;&#x6709;&#x554A;(&#x256F;&#xB0;&#x414;&#xB0;)&#x256F;.</p><p>&#x90A3;&#x662F;&#x4E0D;&#x662F;&#x54EA;&#x91CC;&#x9519;&#x4E86;&#x5462;&#xFF0C;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x4EE3;&#x7801;&#x4E2D;&#x6CE8;&#x91CA;&#xFF08;&#x6DFB;&#x52A0;&#x4E09;&#x884C;&#x4EE3;&#x7801;&#xFF09;&#xFF0C;&#x786E;&#x5B9E;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x540C;&#x6837;&#x7684;&#x4E1C;&#x897F;&#x4F46;&#x662F;&#x51FD;&#x6570;&#x5730;&#x5740;&#x4E0D;&#x4E00;&#x6837;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x7684;&#x539F;&#x56E0;&#x8FD9;&#x6837;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x4E0D;&#x4E0B;&#x53BB;&#x4E86;&#x3002;</p><p><code>gcc</code>&#x4E0D;&#x597D;&#x7528;&#x770B;&#x770B;<code>&#x5FAE;&#x8F6F;</code>&#x600E;&#x4E48;&#x662F;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x5427;&#x3002;</p><p>ps&#xFF1A;&#x672C;&#x6765;&#x4E0D;&#x60F3;&#x9A8C;&#x8BC1;&#x975E;&#x865A;&#x7EE7;&#x627F;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F97;&#xFF0C;&#x4E0D;&#x662F;&#x7684;&#x8BDD;(&#x256F;&#xB0;&#x414;&#xB0;)&#x256F;&#x3002;&#x5E78;&#x597D;&#x5728;<code>gcc 6.1.1</code>&#x662F;&#x5B83;&#x4EEC;&#x5730;&#x5740;&#x662F;&#x76F8;&#x540C;&#x7684;&#x252C;&#x2500;&#x252C; &#x30CE;(&apos;-&apos;&#x30CE;)</p><h6 id="visual-studio-2013">visual studio 2013</h6><p>&#x4E0A;&#x6765;&#x5C31;&#x591A;&#x51FA;&#x6765;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;&#x865A;&#x51FD;&#x6570;&#x8868;&#x6307;&#x9488;(_vftptr)&#x3001;&#x865A;&#x57FA;&#x7C7B;&#x8868;&#x6307;&#x9488;(_bvtptr)&#x3002;</p><p>&#x4F46;&#x662F;&#x5FAE;&#x8F6F;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x5BF9;&#x8C61;&#x5B8C;&#x6574;&#x7684;&#x5185;&#x5B58;&#x5E03;&#x5C40;&#x554A;&#xFF0C;&#x771F;&#x5B9E;&#x4E0D;&#x9519;&#xFF0C;&#x6709;&#x4E00;&#x7EDF;&#x6C5F;&#x6E56;&#x7684;&#x6C14;&#x8D28;&#xFF01;&#x65B9;&#x6CD5;&#xFF1A;<code>&#x9879;&#x76EE;&#x5C5E;&#x6027;-&gt;&#x914D;&#x7F6E;&#x5C5E;&#x6027;-&gt;C/C++-&gt;&#x547D;&#x4EE4;&#x884C;-&gt;&#x5176;&#x4ED6;&#x9009;&#x9879;</code>&#x6DFB;&#x52A0;<code>/d1reportSingleClassLayout[&#x7C7B;&#x540D;]</code><sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;&#x6BD4;&#x5982;&#x8FD9;&#x91CC;&#x5C31;&#x662F;<code>/d1reportSingleClassLayoutB1</code>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#xFF1A;<code>cl classLayout.cpp /d1reportSingleClassLayoutB1</code>&#xFF0C;&#x4F1A;&#x5F97;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p><div class="ace"><div class="aceCode" data-config="{&quot;edit&quot;:true,&quot;lang&quot;:&quot;c_cpp&quot;,&quot;check&quot;:false,&quot;theme&quot;:false}">1&gt;------ &#x5DF2;&#x542F;&#x52A8;&#x751F;&#x6210;: &#x9879;&#x76EE;: Vptr, &#x914D;&#x7F6E;: Debug Win32 ------
 1&gt;  main.cpp
 1&gt;  class B1    size(32):
 1&gt;      +---
@@ -853,7 +899,10 @@ int main()
 1&gt;                 B      20       4       4 1
 1&gt;  
 1&gt;  
-1&gt;  Vptr.vcxproj -&gt; D:\Code_Inc\VS2012\Test\Vptr\Vptr\Debug\Vptr.exe</code></pre>
+1&gt;  Vptr.vcxproj -&gt; D:\Code_Inc\VS2012\Test\Vptr\Vptr\Debug\Vptr.exe<br></div></div>
+
+
+
 <p>&#x6211;&#x4EEC;&#x770B;&#x5230;<code>B1 vftable</code>&#x4E2D;&#x5374;&#x6CA1;&#x6709;&#x5B83;&#x7684;&#x865A;&#x51FD;&#x6570;<code>f()</code>&#x3002;&#x6240;&#x4EE5;&#x7F16;&#x8BD1;&#x5668;&#x90FD;&#x597D;&#x4EFB;&#x6027;~~ &#x4E0D;&#x8FC7;&#x5FAE;&#x8F6F;&#x8FD9;&#x4E2A;&#x5E03;&#x5C40;&#x8F93;&#x51FA;&#x771F;&#x5FC3;&#x8D5E;&#xFF0C;&#x4E0D;&#x7528;&#x518D;&#x81EA;&#x5DF1;&#x731C;&#x60F3;&#x4E86;T_T.</p><p>&#x867D;&#x7136;&#x4E0D;&#x5B8C;&#x7F8E;&#xFF0C;<strong>&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x865A;&#x7EE7;&#x627F;&#x7C7B;&#x4F3C;&#x4E8E;&#x5C06;&#x865A;&#x57FA;&#x7C7B;&#x7684;&#x6210;&#x5458;&#xFF08;&#x865A;&#x51FD;&#x6570;&#x548C;&#x53D8;&#x91CF;&#xFF09;&#x653E;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5B50;&#x7C7B;&#x7684;&#x653E;&#x5728;&#x4E86;&#x4E00;&#x8D77;</strong>&#x3002;</p><p>&#x6709;&#x4E9B;&#x8BDD;&#x9700;&#x8981;&#x591A;&#x6B21;&#x5F15;&#x7528;&#xFF0C;</p><blockquote><p>Lippman&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x865A;&#x57FA;&#x7C7B;&#x6D3E;&#x751F;&#x81EA;&#x53E6;&#x4E00;&#x865A;&#x57FA;&#x7C7B;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x4EEC;&#x90FD;&#x652F;&#x6301;&#x865A;&#x51FD;&#x6570;&#x548C;&#x975E;&#x9759;&#x6001;&#x6570;&#x636E;&#x6210;&#x5458;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5BF9;&#x865A;&#x57FA;&#x7C7B;&#x7684;&#x652F;&#x6301;&#x5C31;&#x50CF;&#x8FF7;&#x5BAB;&#x4E00;&#x6837;&#x590D;&#x6742;&#x3002;</p></blockquote><h4 id="&#x5F3A;&#x70C8;&#x5B89;&#x5229;">&#x5F3A;&#x70C8;&#x5B89;&#x5229;</h4><p><a href="https://book.douban.com/subject/1091086/" target="_blank">&#x300A;&#x6DF1;&#x5EA6;&#x63A2;&#x7D22;C++&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x300B;</a>&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4E00;&#x70B9;&#x6CA1;&#x770B;&#x5462;&#xFF0C;&#x4E0D;&#x8FC7;&#x597D;&#x50CF;&#x975E;&#x5E38;&#x503C;&#x5F97;&#x770B;&#x3002;ps&#xFF1A;&#x8BC4;&#x8BBA;&#x91CC;&#x6709;&#x4E00;&#x53E5;&#xFF0C;&#x770B;&#x4E86;&#x4E4B;&#x540E;&#x4E5F;&#x4E0D;&#x7528;&#x8DDF;&#x7740;&#x5199;&#x51E0;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x9876;&#x591A;&#x4E00;&#x628A;&#x4E00;&#x628A;&#x7684;&#x8585;&#x5934;&#x53D1;&#xFF0C;&#x53CD;&#x6B63;&#x4E0D;&#x8D39;&#x7535;&#xFF01;</p><h4 id="references">References:</h4><ol><li><a href="http://www.cnblogs.com/kekec/archive/2013/01/27/2822872.html" target="_blank">c++&#x5BF9;&#x8C61;&#x5185;&#x5B58;&#x6A21;&#x578B;&#x3010;&#x5185;&#x5B58;&#x5E03;&#x5C40;&#x3011;</a>
 </li></ol>
 
@@ -899,7 +948,7 @@ int main()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"带虚函数单虚继承","level":"1.6.3.3","depth":3,"next":{"title":"带虚函数多虚继承","level":"1.6.3.4","depth":3,"path":"class/vtable/multi_vir_inheritance.md","ref":"class/vtable/multi_vir_inheritance.md","articles":[]},"previous":{"title":"带虚函数多继承","level":"1.6.3.2","depth":3,"path":"class/vtable/multi_inheritance.md","ref":"class/vtable/multi_inheritance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","disqus","ga","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"roachsinai"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"white","family":"serif","size":2},"highlight":{},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"ga":{"configuration":"auto","token":"UA-80570808-2"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","keywords":"C++, 学习笔记, markdown, gitbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++拾遗","links":{"home":false,"about":false,"issues":false,"contribute":false,"sidebar":{"Roach's Blog":"http://roachsinai.github.io/"},"tail":{"C++拾遗":"http://roachsinai.github.io/Cpp-learning-notes/"},"gitbook":false,"sharing":{"google":true,"facebook":true,"twitter":true,"weibo":true,"qq":true,"qrcode":true}},"introduction":{"path":"README.md","title":"学习就是踽踽前行"},"gitbook":"*","description":"C++学习笔记"},"file":{"path":"class/vtable/singel_vir_inheritance.md","mtime":"2016-08-20T09:53:51.559Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-21T14:46:01.818Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"带虚函数单虚继承","level":"1.6.3.3","depth":3,"next":{"title":"带虚函数多虚继承","level":"1.6.3.4","depth":3,"path":"class/vtable/multi_vir_inheritance.md","ref":"class/vtable/multi_vir_inheritance.md","articles":[]},"previous":{"title":"带虚函数多继承","level":"1.6.3.2","depth":3,"path":"class/vtable/multi_inheritance.md","ref":"class/vtable/multi_inheritance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","ga","search","-search-pro@1.0.7","github","-toggle-chapters","ace","expandable-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"roachsinai"},"ace":{},"github":{"url":"https://github.com/roachsinai"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["cpp-notes"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"white","family":"serif","size":2},"highlight":{},"ga":{"configuration":"auto","token":"UA-80570808-2"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","keywords":"C++, 学习笔记, markdown, gitbook","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":36,"bottom":36},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++拾遗","links":{"home":false,"about":false,"issues":false,"contribute":false,"sidebar":{"Roach's Blog":"http://roachsinai.github.io/"},"tail":{"C++拾遗":"http://roachsinai.github.io/Cpp-learning-notes/"},"gitbook":false},"introduction":{"path":"README.md","title":"学习就是踽踽前行"},"gitbook":"*","description":"C++学习笔记"},"file":{"path":"class/vtable/singel_vir_inheritance.md","mtime":"2016-08-23T15:17:36.655Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-23T16:47:11.414Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -907,14 +956,6 @@ int main()
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
-        
     
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
@@ -929,15 +970,31 @@ int main()
         
     
         
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
-    
-        
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         
         <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
