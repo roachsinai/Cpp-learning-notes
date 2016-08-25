@@ -53,7 +53,7 @@ int main()
 {%ace edit=true, lang='c_cpp'%}
 int main()
 {
-    int arr[][3] = { {1,2,3},{4,5,6} };
+    int arr[][3] = {{1,2,3},{4,5,6}};
 	int** ii_a = (int**)arr;
     
     cout << typeid(arr).name() << endl; // A2_A3_i
