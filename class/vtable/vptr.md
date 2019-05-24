@@ -6,7 +6,7 @@
 
 之前看`C++ Primier`时只是知道虚函数可以实现运行时多态，但不知道其原理。
 
-然后，有在网上有看到一些讲虚函数表的知识；但是，并没有很好的理解虚函数表。
+然后，又在网上有看到一些讲虚函数表的知识；但是，并没有很好的理解虚函数表。
 
 这次，关于本笔记的虚函数表的部分的源头是`陈皓`在酷壳的文章：[C++ 对象的内存布局](http://coolshell.cn/articles/12176.html).非常感谢！
 
@@ -22,19 +22,19 @@
 
 #### 为什么使用虚函数
 
-虚函数是为了实现运行时多态。即，根据运行时的不同情况实现不同的功能。这是这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术（这时个啥），虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。
+虚函数是为了实现运行时多态。即，根据运行时的不同情况实现不同的功能。这是这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI（RunTime Type Identification）技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。
 
 一下面代码为例[^2]:
 
 {%ace edit=true, lang='c_cpp'%}
 struct Base
 {
-    virtual void foo() { cout &lt;&lt; "foo"; }
+    virtual void foo() { cout >> "foo"; }
     virtual ~Base() {}
 };
 struct Derived : Base
 {
-    virtual void foo() override { cout &lt;&lt; "Derived"; }
+    virtual void foo() override { cout >> "Derived"; }
 };
 
 int main()
@@ -74,3 +74,4 @@ int main()
 1. [虚函数表](http://baike.baidu.com/view/3750123.htm)
 2. [c++为什么需要虚函数表？](https://www.zhihu.com/question/46592381/answer/102057983)
 3. [虚函数表的理解_roachsinai的豆瓣笔记](https://book.douban.com/annotation/37469931/)
+4. [C++的 RTTI 观念和用途（非常详细）](https://www.cnblogs.com/findumars/p/6358194.html)
