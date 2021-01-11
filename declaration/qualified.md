@@ -7,7 +7,7 @@
 > qualified: 有资格的、合格的、胜任的；有限制的、不完全的；
 > modified, limited, or restricted in some way: qualified approval.
 
-词组：`well-qualified`博览群书的,`qualified candidate`合格候选人,`qualified expression`限定表达式,`qualified majority`特定多数`,`qualified opinion`附条件意见书、保留意见书；
+词组：`well-qualified`博览群书的,`qualified candidate`合格候选人,`qualified expression`限定表达式,`qualified majority`特定多数,`qualified opinion`附条件意见书、保留意见书；
 
 绝不是zhuangbi，只是先表达在中文翻译没有解答疑惑的时候，就应该捡起英语了。
 
